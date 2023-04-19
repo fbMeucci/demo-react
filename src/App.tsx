@@ -1,33 +1,32 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import Ciccio from "./components/Ciccio/Ciccio"
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const [contatoreCiccio, setContatoreCiccio] = useState(0)
+
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <Ciccio valore={count} nome="Claudio" aggiorna={setContatoreCiccio} contatore={contatoreCiccio}/>
+      <br />
+      <Ciccio valore={count} nome="Francesco" aggiorna={setContatoreCiccio} contatore={contatoreCiccio}/>
+
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          Bottone padre {count}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>
+        il valore del contatore in Ciccio è {contatoreCiccio}
+      </h2>
+
+
+
     </div>
   )
 }
